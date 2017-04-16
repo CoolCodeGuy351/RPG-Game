@@ -1,0 +1,15 @@
+/* Bootstrap / CSS */
+
+.image{
+	height: 160px;
+    width: 160px;
+}
+
+#good-guy-image-div{
+	height: 200px;
+}
+
+#bad-guy-image-div{
+	height: 200px;
+}
+
