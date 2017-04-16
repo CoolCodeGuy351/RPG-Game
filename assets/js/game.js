@@ -74,15 +74,8 @@ $(document).ready(function() {
         	charChosen.push(goodArray[0]);
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
-        	$('#good-guy-image-div').prepend('<img src="assets/images/hero_scout.png" height="200px" width="200px"/>');
+        	$('#good-guy-image-div').prepend('<img src="assets/images/hero_scout.png" height="180px" width="180px"/>');
         }
-
-        console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
-    	console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
-    	console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
         
         
     });
@@ -93,9 +86,8 @@ $(document).ready(function() {
         	charChosen.push(goodArray[1]);
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
-        	$('#good-guy-image-div').prepend('<img src="assets/images/knight.png" height="200px" width="200px"/>');
+        	$('#good-guy-image-div').prepend('<img src="assets/images/knight.png" height="180px" width="180px"/>');
         }
-        console.log(charChosen[0].name);
         
 
     });
@@ -107,7 +99,6 @@ $(document).ready(function() {
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
         }
-        console.log(charChosen[0].name);
         
     });
 
@@ -118,7 +109,6 @@ $(document).ready(function() {
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
         }
-        console.log(charChosen[0].name);
         
     });
 
@@ -129,12 +119,6 @@ $(document).ready(function() {
         	lockButtonsBadGuys = true;
         	
         }
-        console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
-    	console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
-    	console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
         
     });
 
@@ -144,7 +128,7 @@ $(document).ready(function() {
         	charChosen.push(badArray[1]);
         	lockButtonsBadGuys = true;
         }
-        console.log(charChosen[1].name);
+
         
     });
 
@@ -154,7 +138,8 @@ $(document).ready(function() {
         	charChosen.push(badArray[2]);
         	lockButtonsBadGuys = true;
         }
-        console.log(charChosen[1].name);
+
+
     });
 
     $("#boss_group.bad-guy-img").on("click", function() {
@@ -163,18 +148,12 @@ $(document).ready(function() {
         	charChosen.push(badArray[3]);
         	lockButtonsBadGuys = true;
         }
-        console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
-    	console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
-    	console.log(charChosen[0].name);
-    	console.log(charChosen[1].name);
+
+
     });
 
 
-
-
-
+    // Functions
 
 	function win(){
 		scout.health = 150;
@@ -189,10 +168,6 @@ $(document).ready(function() {
 		lockButtonsBadGuys = false;
 		goodGuyChosenAlready = false;
 	}
-
-
-
-		
 
 	function fight(){
 
@@ -210,21 +185,32 @@ $(document).ready(function() {
 
 	}
 
+
 	// Need to figure out fighting mechanics
 
 	function attack(){
 
+		// User Attacks
+
 		var damageThisAttack = 0;
 
-		// Normal Attack
 		charChosen[1].health = charChosen[1].health - charChosen[0].attack;
 		damageThisAttack += charChosen[0].attack;
+
+
+		/*
+		// Check if dead ?? 
+		if()
+		*/
+
 
 		// Possible Crit
 		if(Math.floor(Math.random() * 2) + 1 === 1) {
 
 			charChosen[1].health -= charChosen[1].health - (charChosen[0].attack * charChosen[0].crit);
 			damageThisAttack += charChosen[0].attack * charChosen[0].crit;
+
+			// Check if dead ??
 
 			$("#text-line-double-damage").html("You did critical damage!");
 			$("#text-line-damage-dealt").html("<p>You dealt: " + damageThisAttack + "</p>");
@@ -236,17 +222,25 @@ $(document).ready(function() {
 		$("#text-line-damage-dealt").html("<p>You dealt: " + damageThisAttack + "</p>");
 		console.log("No crit: " + damageThisAttack);
 
+
+
+		// Computer attacks back 
+
 		var damageTakenThisAttack = 0;
 
 		// Normal Attack
 		charChosen[0].health = charChosen[0].health - charChosen[1].attack;
 		damageThisAttack += charChosen[1].attack;
 
+	 	// Check if dead ??
+
 		// Possible Crit
 		if(Math.floor(Math.random() * 2) + 1 === 1) {
 
 			charChosen[0].health -= charChosen[0].health - (charChosen[1].attack * charChosen[1].crit);
 			damageThisAttack += charChosen[1].attack * charChosen[1].crit;
+
+			// Check if dead ??
 
 			$("#text-line-damage-recieved").html("<p>You received crital damage: " + damageTakenThisAttack + "</p>");
 			console.log("Crit: " + damageTakenThisAttack);
@@ -260,11 +254,6 @@ $(document).ready(function() {
 
 	}
 
-	function defend(){
-
-
-
-	}
 
 	function levelUp(){
 		scout.health = 150 + 60;

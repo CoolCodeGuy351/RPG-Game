@@ -5,11 +5,17 @@
     width: 160px;
 }
 
-#good-guy-image-div{
-	height: 200px;
+.row{
+	margin: 50px 0;
 }
 
-#bad-guy-image-div{
-	height: 200px;
+button{
+	position: relative;
+	margin: 0 auto;
+}
+
+#button-attack{
+	margin: auto;
+	margin-bottom: 10px;
 }
 
