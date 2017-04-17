@@ -181,6 +181,8 @@ $(document).ready(function() {
 
 		function dead(){
 
+
+
 		}
 
 	}
@@ -191,17 +193,15 @@ $(document).ready(function() {
 	function attack(){
 
 		// User Attacks
-
 		var damageThisAttack = 0;
 
 		charChosen[1].health = charChosen[1].health - charChosen[0].attack;
 		damageThisAttack += charChosen[0].attack;
 
-
-		/*
-		// Check if dead ?? 
-		if()
-		*/
+		// ded?
+		if( charChosen[1].health < 1 ){
+			dead();
+		}
 
 
 		// Possible Crit
@@ -211,21 +211,20 @@ $(document).ready(function() {
 			damageThisAttack += charChosen[0].attack * charChosen[0].crit;
 
 			// Check if dead ??
+			if( charChosen[1].health < 1 ){
+			dead();
+			}
 
 			$("#text-line-double-damage").html("You did critical damage!");
 			$("#text-line-damage-dealt").html("<p>You dealt: " + damageThisAttack + "</p>");
 			console.log("Crit: " + damageThisAttack);
-
-
-		}
+		}	
 
 		$("#text-line-damage-dealt").html("<p>You dealt: " + damageThisAttack + "</p>");
 		console.log("No crit: " + damageThisAttack);
-
-
+		// end crit
 
 		// Computer attacks back 
-
 		var damageTakenThisAttack = 0;
 
 		// Normal Attack
@@ -233,6 +232,9 @@ $(document).ready(function() {
 		damageThisAttack += charChosen[1].attack;
 
 	 	// Check if dead ??
+	 	if( charChosen[0].health < 1 ){
+			dead();
+			}
 
 		// Possible Crit
 		if(Math.floor(Math.random() * 2) + 1 === 1) {
@@ -241,18 +243,21 @@ $(document).ready(function() {
 			damageThisAttack += charChosen[1].attack * charChosen[1].crit;
 
 			// Check if dead ??
+			if( charChosen[0].health < 1 ){
+			dead();
+			}
 
 			$("#text-line-damage-recieved").html("<p>You received crital damage: " + damageTakenThisAttack + "</p>");
 			console.log("Crit: " + damageTakenThisAttack);
-
 
 		}
 
 		$("#text-line-damage-recieved").html("<p>You took: " + damageThisAttack + "</p>");
 		console.log("No crit: " + damageThisAttack);
 
-
 	}
+
+	// function end
 
 
 	function levelUp(){
