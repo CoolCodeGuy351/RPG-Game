@@ -64,6 +64,7 @@ $(document).ready(function() {
 	var lockButtonsGoodGuys = false;
 	var lockButtonsBadGuys = false;
 	var goodGuyChosenAlready = false;
+	var xp = 0;
 
 // If else statments within button clicks allow the array to be filled with the "Good guy" always in place [0]
 // and the bad guy always in place [1];
@@ -74,7 +75,7 @@ $(document).ready(function() {
         	charChosen.push(goodArray[0]);
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
-        	$('#good-guy-image-div').prepend('<img src="assets/images/hero_scout.png" height="180px" width="180px"/>');
+        	$('#good-guy-image-div').html('<img src="assets/images/hero_scout.png" height="180px" width="180px"/>');
         }
         
         
@@ -86,7 +87,7 @@ $(document).ready(function() {
         	charChosen.push(goodArray[1]);
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
-        	$('#good-guy-image-div').prepend('<img src="assets/images/knight.png" height="180px" width="180px"/>');
+        	$('#good-guy-image-div').html('<img src="assets/images/knight.png" height="180px" width="180px"/>');
         }
         
 
@@ -98,6 +99,7 @@ $(document).ready(function() {
         	charChosen.push(goodArray[2]);
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
+        	$('#good-guy-image-div').html('<img src="assets/images/zombie_stu.png" height="180px" width="180px"/>');
         }
         
     });
@@ -108,6 +110,7 @@ $(document).ready(function() {
         	charChosen.push(goodArray[3]);
         	lockButtonsGoodGuys = true;
         	goodGuyChosenAlready = true;
+        	$('#good-guy-image-div').html('<img src="assets/images/gold_knight.png" height="180px" width="180px"/>');
         }
         
     });
@@ -117,7 +120,7 @@ $(document).ready(function() {
         if (!lockButtonsBadGuys && goodGuyChosenAlready) {
         	charChosen.push(badArray[0]);
         	lockButtonsBadGuys = true;
-        	
+        	$('#bad-guy-image-div').html('<img src="assets/images/ogre.png" height="180px" width="180px"/>');
         }
         
     });
@@ -127,6 +130,7 @@ $(document).ready(function() {
         if (!lockButtonsBadGuys && goodGuyChosenAlready) {
         	charChosen.push(badArray[1]);
         	lockButtonsBadGuys = true;
+        	$('#bad-guy-image-div').html('<img src="assets/images/dark_knight.png" height="180px" width="180px"/>');
         }
 
         
@@ -137,6 +141,7 @@ $(document).ready(function() {
         if (!lockButtonsBadGuys && goodGuyChosenAlready) {
         	charChosen.push(badArray[2]);
         	lockButtonsBadGuys = true;
+        	$('#bad-guy-image-div').html('<img src="assets/images/king.png" height="180px" width="180px"/>');
         }
 
 
@@ -147,8 +152,15 @@ $(document).ready(function() {
         if (!lockButtonsBadGuys && goodGuyChosenAlready) {
         	charChosen.push(badArray[3]);
         	lockButtonsBadGuys = true;
+        	$('#bad-guy-image-div').html('<img src="assets/images/boss_group.png" height="180px" width="180px"/>');
         }
 
+
+    });
+
+    $('#button-attack').on("click", function(){
+
+    	attack();
 
     });
 
@@ -167,28 +179,11 @@ $(document).ready(function() {
 		lockButtonsGoodGuys = false;
 		lockButtonsBadGuys = false;
 		goodGuyChosenAlready = false;
-	}
-
-	function fight(){
-
-		while(charChosen[0].health >= 1 || charChosen[1].health >= 1){
-
-			attack();
-			defend();
-
-			dead();
-		}
-
-		function dead(){
-
-
-
-		}
-
+		xp = 0;
 	}
 
 
-	// Need to figure out fighting mechanics
+	// Attack function runs when the user clicks the attack button and battles currently selected hero against the currently selected enemy.
 
 	function attack(){
 
@@ -198,22 +193,11 @@ $(document).ready(function() {
 		charChosen[1].health = charChosen[1].health - charChosen[0].attack;
 		damageThisAttack += charChosen[0].attack;
 
-		// ded?
-		if( charChosen[1].health < 1 ){
-			dead();
-		}
-
-
 		// Possible Crit
 		if(Math.floor(Math.random() * 2) + 1 === 1) {
 
 			charChosen[1].health -= charChosen[1].health - (charChosen[0].attack * charChosen[0].crit);
 			damageThisAttack += charChosen[0].attack * charChosen[0].crit;
-
-			// Check if dead ??
-			if( charChosen[1].health < 1 ){
-			dead();
-			}
 
 			$("#text-line-double-damage").html("You did critical damage!");
 			$("#text-line-damage-dealt").html("<p>You dealt: " + damageThisAttack + "</p>");
@@ -221,7 +205,6 @@ $(document).ready(function() {
 		}	
 
 		$("#text-line-damage-dealt").html("<p>You dealt: " + damageThisAttack + "</p>");
-		console.log("No crit: " + damageThisAttack);
 		// end crit
 
 		// Computer attacks back 
@@ -231,21 +214,12 @@ $(document).ready(function() {
 		charChosen[0].health = charChosen[0].health - charChosen[1].attack;
 		damageThisAttack += charChosen[1].attack;
 
-	 	// Check if dead ??
-	 	if( charChosen[0].health < 1 ){
-			dead();
-			}
-
 		// Possible Crit
 		if(Math.floor(Math.random() * 2) + 1 === 1) {
 
 			charChosen[0].health -= charChosen[0].health - (charChosen[1].attack * charChosen[1].crit);
 			damageThisAttack += charChosen[1].attack * charChosen[1].crit;
 
-			// Check if dead ??
-			if( charChosen[0].health < 1 ){
-			dead();
-			}
 
 			$("#text-line-damage-recieved").html("<p>You received crital damage: " + damageTakenThisAttack + "</p>");
 			console.log("Crit: " + damageTakenThisAttack);
@@ -254,6 +228,18 @@ $(document).ready(function() {
 
 		$("#text-line-damage-recieved").html("<p>You took: " + damageThisAttack + "</p>");
 		console.log("No crit: " + damageThisAttack);
+
+		// Check if selected either 
+		if( charChosen[0].health < 1 ){
+
+		alert("Sorry You lost! Click okay to restart")
+		win() // This function ends the game
+
+		} else if( charChosen[1].health < 1 ){
+
+		dead() // This function selects a new character to fight
+
+		}
 
 	}
 
@@ -267,7 +253,16 @@ $(document).ready(function() {
 		goldKnight.health = 240 + 75;
 	}
 
+	function dead() {
 
+		xp++;
+		if(xp === 2){
+			levelUp();
+		}
+		charChosen.splice(1,1,badArray[i]);
+		$('#bad-guy-image-div').html('<img src="assets/images/skull.png" height="180px" width="180px"/>')
+	
+	}
 
 });
 
