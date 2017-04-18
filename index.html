@@ -19,16 +19,22 @@
 
 <body>
 
-<div class="container-fluid">
+<div class="container">
+
 	<div class="row">
-		<div class="col-12">
+
+		<div class="col-12 d-flex justify-content-center">
 			<h1 id="game-title" class="text-center">Medieval RPG</h1>
 		</div>
-	</div>
-</div>
 
-<div class="container-fluid">
+	</div>
+
+
+
+	<!-- Rules Drop Down Section -->
+
 	<div class="row">
+
 		<div class="col-12 d-flex justify-content-center">
 
 			<div class="pos-f-t">
@@ -62,7 +68,160 @@
 	</div>
 
 
-	<!-- Character Section starts here -->
+	<div class="row text-center">
+
+	<!-- Left Side Character Menu Section -->
+		<div class="col-lg-6 char-section-container">
+
+		<h3 class="character-title-new">Heroes</h3>
+
+			<div class="char-container">
+				<h5 class="char-title">Scout</h5>
+				<img  id="scout" class="image good-guy-img starting-char img-fluid" src="assets/images/hero_scout.png">
+				<p class="stats">Health: 150</p>
+				
+			</div>
+
+			<div class="char-container">
+				<h5 class="char-title">Knight</h5>
+				<img id="knight" class="image good-guy-img starting-char img-fluid" src="assets/images/knight.png">
+				<p class="stats">Health: 225</p>
+				
+			</div>
+
+			<div class="char-container">
+				<h5 class="char-title">Zombie Stu</h5>
+				<img id="zombie_stu" class="image good-guy-img starting-char" src="assets/images/zombie_stu.png">
+				<p class="stats">Health: 200</p>
+				
+			</div>
+
+			<div class="char-container">
+				<h5 class="char-title">Golden Kight</h5>
+				<img id="gold_knight" class="image  good-guy-img starting-char img-fluid" src="assets/images/gold_knight.png">
+				<p class="stats">Health: 240</p>
+				
+			</div>
+
+		</div>
+
+	
+
+	<!-- Right Side Character Menu Section -->
+		<div class="col-lg-6 char-section-container">
+
+		<h3 class="character-title-new">Villians</h3>
+
+			<div class="char-container">
+				<h5 class="char-title">Ogre</h5>
+				<img id="ogre" class="image bad-guy-img starting-char rounded" src="assets/images/ogre.png">
+				<p class="stats">Health: 180</p>
+
+			</div>
+
+			<div class="char-container">
+				<h5 class="char-title">Dark Knight</h5>
+				<img id="dark_knight" class="image bad-guy-img starting-char rounded" src="assets/images/dark_knight.png">
+				<p class="stats">Health: 210</p>
+
+			</div>
+
+			<div class="char-container">
+				<h5 class="char-title">King</h5>
+				<img id="king" class="image bad-guy-img starting-char rounded" src="assets/images/king.png">
+				<p class="stats">Health: 300</p>
+
+			</div>
+
+			<div class="char-container">
+				<h5 class="char-title">Boss Gang</h5>
+				<img id="boss_group" class="image bad-guy-img rounded" src="assets/images/boss_group.png">
+				<p class="stats">Health: 380</p>
+
+			</div>
+		</div>
+	
+	</div>
+
+	<!-- Picture / Health / Deafeat 1 more line -->
+
+	<div id="character-render-section" class="row">
+
+		<div class="col-sm-6 text-center">
+
+			<div class="good-guy-img-container">
+
+				<div id="right-char-div-one" class="character">
+
+					<div id="good-guy-image-div">
+					</div>
+
+					<p id="health-text"></p>
+					<p id="one-more-foe"></p>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-sm-6 text-center">
+
+			<div class="bad-guy-img-container">
+
+					<div id="left-char-div-one" class="character">
+
+						<div id="bad-guy-image-div">
+						</div>
+
+						<p id="bad-health-text"></p>
+
+					</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- Attack Button / Damage dealt, Damage recieved, Crit Line -->
+
+		<div class="row text-center">
+
+				<div class="col-lg-2 offset-lg-5" id="bottom-section-column">
+
+						<div id="bottom-section container text-center">
+
+						<button id="button-attack" class="text-align-center">Attack!</button>
+						<p id="text-line-damage-dealt" class="text-center">Damage</p>
+						<p id="text-line-damage-recieved" class="text-center">Damage Taken</p>
+						<p id="text-line-double-damage" class="text-center">You did double damage!</p>
+
+						</div>
+				</div>
+
+		</div>
+
+	
+	
+</div>
+
+<!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!-- JQuery -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+ <script src="assets/js/game.js"></script>
+
+ <!--
+
+	 Character Section starts here 
 
 	<div class="row char-row">
 		
@@ -90,7 +249,7 @@
 				<p class="stats">Crit Multiplier: 0.9</p>
 			</div>
 
-					<!-- Images get rendered here -->
+					 Images get rendered here 
 
 					<div id="right-char-div-one" class="col-3 character">
 						<div id="good-guy-image-div">
@@ -162,20 +321,7 @@
 
 </div>
 
-<!-- Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-<!-- JQuery -->
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
- <script src="assets/js/game.js"></script>
+-->
 
 </body>
 

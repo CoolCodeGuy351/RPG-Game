@@ -71,6 +71,7 @@ $(document).ready(function() {
 	var xp = 0;
 
 
+
 // If else statments within button clicks allow the array to be filled with the "Good guy" always in place [0]
 // and the bad guy always in place [1];
 
@@ -186,6 +187,7 @@ $(document).ready(function() {
 
     // Functions
 
+
 	function userLose(){
 		scout.health = 150;
 		knight.health = 225;
@@ -215,6 +217,35 @@ $(document).ready(function() {
 		$('#health-text').html('');
 		charChosen.pop();
 		charChosen.pop();
+
+	}
+
+	function userWon(){
+
+		scout.health = 150;
+		knight.health = 225;
+		zombie.health = 200;
+		goldKnight.health = 240;
+		ogre.health = 180;
+		darkKnight.health = 210;
+		king.health =230;
+		boss.health = 250;
+		scout.attack = 50;
+		knight.attack = 40;
+		zombie.attack = 35;
+		goldKnight.attack = 35;
+		lockButtonsGoodGuys = false;
+		lockButtonsBadGuys = false;
+		goodGuyChosenAlready = false;
+
+		xp = 0;
+		$('#good-guy-image-div').html('<h3>You won!! Choose a new character to play again!</h3>');
+		$('#bad-guy-image-div').html('');
+		$('#bad-health-text').html('');
+		$('#health-text').html('');
+		charChosen.pop();
+		charChosen.pop();
+
 
 	}
 
@@ -315,12 +346,19 @@ $(document).ready(function() {
 
 
 	function levelUp(){
-		scout.health = scoutIncHealth + 70;
-		knight.health = knightIncHealth + 70;
-		zombie.health = zombieIncHealth + 70;
-		goldKnight.health = goldKnightIncHealth + 70;
 
-		scout.attack += 5
+		scout.health = scoutIncHealth;
+		knight.health = knightIncHealth;
+		zombie.health = zombieIncHealth;
+		goldKnight.health = goldKnightIncHealth;
+
+		scout.health +=  150;
+		knight.health += 150;
+		zombie.health += 150;
+		goldKnight.health += 150;
+
+
+		scout.attack += 5;
 		knight.attack += 5;
 		zombie.attack += 5;
 		goldKnight.attack += 5;
@@ -337,7 +375,7 @@ $(document).ready(function() {
 			levelUp();
 		}
 		charChosen.splice(1,1);
-		$('#bad-guy-image-div').html('<img src="assets/images/skull.png" height="160px" width="160px"/>')
+		$('#bad-guy-image-div').html('<img src="assets/images/skull.png" height="140px" width="140px"/>')
 		console.log(charChosen[1]);
 		lockButtonsBadGuys = false;
 		ogre.health = 180;
@@ -348,14 +386,3 @@ $(document).ready(function() {
 	}
 
 });
-
-
-
-
- 	/* JQuery Hover
- 	
- 	$("#crystal-orange").hover(function(){
-        $(this).css("opacity", "0.65");
-        }, function(){
-        $(this).css("opacity", "1");
-    */

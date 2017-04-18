@@ -1,54 +1,29 @@
 /* Bootstrap / CSS */
 
-.image{
-	height: 160px;
-    width: 160px;
+.char-container{
+	width: 20%;
+	display: inline-block;
 }
 
-.row{
-	margin: 50px 0;
+.char-section-container{
+	display: inline-block;
+}
+
+.image{
+	height: 100%;
+    width: 100%;
+}
+
+#character-render-section{
+	min-width: 100%;
 }
 
 button{
-	position: relative;
-	margin: 0 auto;
+	margin-bottom: 20px;
 }
 
-.row{
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.container-fluid{
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.char-row{
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-
-#button-attack{
-	margin: auto;
-	margin-bottom: 10px;
-}
-
-.stats{
-	padding: 0;
+p{
 	margin: 0;
-}
-
-.char-title{
 	padding: 0;
-	margin: 0;
 }
 
-.stats-right{
-	float: right;
-}
